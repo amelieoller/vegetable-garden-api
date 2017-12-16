@@ -10,9 +10,7 @@ class Api::CropsController < ApplicationController
    end
 
    def create
-      
       crop = Crop.new(crop_params)
-
       if crop.save
          render json: crop 
       else
@@ -38,11 +36,10 @@ class Api::CropsController < ApplicationController
 
    private
       def crop_params
-         params.permit(:name,  :days_to_maturity)
+         params.permit(:name,  :days_to_maturity, :image_url, :date_planted, :active)
       end
 
       def set_crop
          @crop = Crop.find_by(id: params[:id])
       end
-
 end

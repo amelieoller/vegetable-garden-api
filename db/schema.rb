@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171214021506) do
+ActiveRecord::Schema.define(version: 20171214021422) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,31 +18,11 @@ ActiveRecord::Schema.define(version: 20171214021506) do
   create_table "crops", force: :cascade do |t|
     t.string "name"
     t.integer "days_to_maturity"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "plantings", force: :cascade do |t|
+    t.string "image_url"
     t.datetime "date_planted"
     t.boolean "active"
-    t.bigint "crop_id"
-    t.bigint "varietal_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["crop_id"], name: "index_plantings_on_crop_id"
-    t.index ["varietal_id"], name: "index_plantings_on_varietal_id"
   end
 
-  create_table "varietals", force: :cascade do |t|
-    t.string "name"
-    t.integer "days_to_maturity"
-    t.bigint "crop_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["crop_id"], name: "index_varietals_on_crop_id"
-  end
-
-  add_foreign_key "plantings", "crops"
-  add_foreign_key "plantings", "varietals"
-  add_foreign_key "varietals", "crops"
 end
