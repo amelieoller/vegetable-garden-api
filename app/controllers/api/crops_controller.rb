@@ -36,7 +36,7 @@ class Api::CropsController < ApplicationController
 
    private
       def crop_params
-         params.permit(:name,  :days_to_maturity, :image_url, :date_planted, :active)
+         params.permit(:name,  :daysToMaturity, :imageUrl, :datePlanted, :active)
       end
 
       def set_crop

@@ -17,9 +17,9 @@ ActiveRecord::Schema.define(version: 20171214021422) do
 
   create_table "crops", force: :cascade do |t|
     t.string "name"
-    t.integer "days_to_maturity"
-    t.string "image_url"
-    t.datetime "date_planted"
+    t.integer "daysToMaturity"
+    t.string "imageUrl"
+    t.datetime "datePlanted"
     t.boolean "active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
